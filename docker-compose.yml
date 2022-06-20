@@ -1,0 +1,17 @@
+version: "3.9"
+services:
+  rabbit:
+    container_name: run_rabbit_broker
+    hostname: run_rabbit
+    image: "rabbitmq:3.10-management"
+    environment:
+      - RABBITMQ_DEFAULT_USER=taonga
+      - RABBITMQ_DEFAULT_PASS=testdi
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    volumes:
+    - "rabbitmq_data:/data"
+volumes:
+  rabbitmq_data:
+
